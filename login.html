@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - FixMyRoad</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body class="auth-page" style="background: linear-gradient(135deg, #FFE082 0%, #FFF59D 100%);">
+    <div class="auth-container">
+        <div class="auth-header">
+            <h1><i class="ph-fill ph-road-horizon"></i> FixMyRoad</h1>
+        </div>
+
+        <div class="auth-box">
+            <div class="auth-tabs">
+                <button class="auth-tab active" onclick="showAuthTab('login')">Login</button>
+                <button class="auth-tab" onclick="showAuthTab('signup')">Sign Up</button>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="auth-form active">
+                <h2>Welcome Back</h2>
+                <p class="auth-subtitle">Sign in to report and track road issues</p>
+
+                <div class="form-field">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                </div>
+
+                <button type="submit" class="btn-auth">
+                    <i class="ph ph-sign-in"></i> Login
+                </button>
+
+                <p class="auth-footer-text">
+                    Don't have an account? <a href="#" onclick="showAuthTab('signup'); return false;">Sign up</a>
+                </p>
+            </form>
+
+            <!-- Signup Form -->
+            <form id="signupForm" class="auth-form">
+                <h2>Create Account</h2>
+                <p class="auth-subtitle">Join us to make our roads better</p>
+
+                <div class="form-field">
+                    <label for="signupName">Full Name</label>
+                    <input type="text" id="signupName" placeholder="Enter your name" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" placeholder="Create a password" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="signupPhone">Phone Number</label>
+                    <input type="tel" id="signupPhone" placeholder="Enter your phone number" required>
+                </div>
+
+                <button type="submit" class="btn-auth">
+                    <i class="ph ph-user-plus"></i> Sign Up
+                </button>
+
+                <p class="auth-footer-text">
+                    Already have an account? <a href="#" onclick="showAuthTab('login'); return false;">Login</a>
+                </p>
+            </form>
+        </div>
+
+        <div class="auth-footer">
+            <a href="index.html">← Back to Home</a>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+
+</html>

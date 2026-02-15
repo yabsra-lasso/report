@@ -4,111 +4,249 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Our Roads - Report Issues</title>
+    <title>FixMyRoad - Jaipur, Rajasthan</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap"
+        rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 
 <body>
-    <div class="mobile-container">
-        <!-- App Header -->
-        <header class="app-header">
-            <div class="header-content">
-                <h1>Our Roads</h1>
-                <span class="location-badge"><i class="ph-fill ph-map-pin"></i> Jaipur, Rajasthan</span>
+    <div class="mobile-container student-dashboard">
+        <!-- App Header with Wave Strip -->
+        <header class="app-header citizen-header"
+            style="background: linear-gradient(135deg, #FFE082 0%, #FFF59D 100%); position: relative; overflow: hidden;">
+            <div class="header-content"
+                style="padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 10;">
+                <div class="header-left" style="display: flex; align-items: center; gap: 12px;">
+                    <i class="ph-fill ph-road-horizon" style="font-size: 2rem; color: #1a1a1a;"></i>
+                    <h1
+                        style="margin: 0; font-family: 'Instrument Serif', serif; font-size: 1.75rem; font-weight: 600; color: #1a1a1a;">
+                        FixMyRoad</h1>
+                </div>
+                <div class="header-right" style="display: flex; gap: 12px; align-items: center;">
+                    <button class="icon-btn"
+                        style="background: rgba(255,255,255,0.6); border: none; padding: 12px; border-radius: 50%; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                        <i class="ph ph-bell" style="font-size: 1.3rem; color: #1a1a1a;"></i>
+                    </button>
+                    <button class="icon-btn" onclick="window.location.href='index.html'"
+                        style="background: rgba(255,255,255,0.6); border: none; padding: 12px; border-radius: 50%; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                        <i class="ph ph-sign-out" style="font-size: 1.3rem; color: #1a1a1a;"></i>
+                    </button>
+                </div>
             </div>
-            <button class="icon-btn"><i class="ph ph-bell"></i></button>
+
+            <!-- Hero Section -->
+            <div style="padding: 32px 24px 48px; text-align: center; position: relative; z-index: 2;">
+                <h2
+                    style="font-family: 'Instrument Serif', serif; font-size: 1.5rem; line-height: 1.4; margin: 0 0 8px; color: #1a1a1a; font-weight: 600;">
+                    Report, view, or discuss local problems
+                </h2>
+                <p style="color: #4a4a4a; font-size: 0.9rem; margin: 0; line-height: 1.5;">
+                    (like potholes, broken street lights, or garbage collection issues)
+                </p>
+            </div>
+
+            <!-- Decorative Wave Strip -->
+            <svg style="position: absolute; bottom: 0; left: 0; width: 100%; height: 60px; z-index: 1;"
+                viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0 C200,50 400,80 600,60 C800,40 1000,20 1200,40 L1200,120 L0,120 Z"
+                    fill="rgba(255,255,255,0.3)" />
+                <path d="M0,20 C300,70 600,50 900,70 C1050,80 1150,60 1200,70 L1200,120 L0,120 Z"
+                    fill="rgba(255,255,255,0.2)" />
+            </svg>
         </header>
 
-        <!-- Feed Section -->
-        <main class="feed-container" id="feedContainer">
-            <!-- Feed Item 1 -->
-            <div class="feed-card">
-                <div class="card-header">
-                    <div class="user-avatar">RK</div>
-                    <div class="post-info">
-                        <span class="user-name">Rahul Kumar</span>
-                        <span class="post-time">2 hours ago &bull; MG Road</span>
+        <!-- Main Content -->
+        <div class="submit-section" style="padding: 24px 20px;">
+            <div class="submit-header">
+                <h2><i class="ph ph-plus-circle"></i> Report an Issue</h2>
+                <p>Help us keep our roads safe by reporting problems</p>
+            </div>
+
+            <form class="report-form" id="reportForm">
+                <!-- Location Input -->
+                <div class="form-group">
+                    <label for="locationInput">
+                        <i class="ph ph-map-pin"></i> Location
+                    </label>
+                    <div class="input-with-button">
+                        <input type="text" id="locationInput" placeholder="Enter street name or location" required>
+                        <button type="button" class="btn-locate-inline" onclick="useCurrentLocation()"
+                            title="Use my location">
+                            <i class="ph-fill ph-crosshair"></i>
+                        </button>
                     </div>
                 </div>
-                <div class="card-image">
-                    <!-- Placeholder for pothole image -->
-                    <div class="placeholder-img"
-                        style="background-color: #ddd; height: 250px; display: flex; align-items: center; justify-content: center; color: #666;">
-                        <i class="ph ph-image" style="font-size: 48px;"></i>
+
+                <!-- Photo Upload -->
+                <div class="form-group">
+                    <label for="issuePhoto">
+                        <i class="ph ph-camera"></i> Photo
+                    </label>
+                    <div class="upload-area" onclick="document.getElementById('issuePhoto').click()">
+                        <i class="ph ph-image" style="font-size: 2.5rem; color: #999;"></i>
+                        <p>Click to upload photo of the issue</p>
+                        <span class="file-name" id="fileName">No file chosen</span>
                     </div>
+                    <input type="file" id="issuePhoto" accept="image/*" style="display: none;"
+                        onchange="updateFileName(this)">
                 </div>
-                <div class="card-actions">
-                    <button class="action-btn support-btn" onclick="toggleSupport(this)">
-                        <i class="ph ph-thumbs-up"></i>
-                        <span class="count">142</span>
-                        <span class="label">People faced this</span>
-                    </button>
-                    <button class="action-btn share-btn">
-                        <i class="ph ph-whatsapp-logo"></i>
-                        <span class="label">Share</span>
-                    </button>
+
+                <!-- Description -->
+                <div class="form-group">
+                    <label for="issueDescription">
+                        <i class="ph ph-note"></i> Description
+                    </label>
+                    <textarea id="issueDescription" rows="4" placeholder="Describe the issue in detail..."
+                        required></textarea>
                 </div>
-                <div class="card-content">
-                    <p class="issue-desc">Huge pothole near the vegetable market. Causing a lot of traffic daily.</p>
-                    <div class="status-badge status-pending">
-                        <i class="ph-fill ph-clock"></i> Pending Action
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn-submit" onclick="submitReport(event)">
+                    <i class="ph ph-paper-plane-right"></i> Submit Report
+                </button>
+            </form>
+        </div>
+
+        <!-- My Reports Section -->
+        <div class="my-reports-section">
+            <div class="section-title">
+                <i class="ph ph-list"></i>
+                <h3>My Active Reports</h3>
+                <span class="badge-count">3</span>
+            </div>
+
+            <!-- Report Card 1 -->
+            <div class="report-card status-pending">
+                <div class="report-header">
+                    <div>
+                        <span class="report-id">#2401</span>
+                        <span class="report-category"><i class="ph-fill ph-warning-circle"></i> Pothole</span>
                     </div>
+                    <span class="report-date">2 days ago</span>
+                </div>
+                <div class="report-location">
+                    <i class="ph ph-map-pin"></i> MG Road, near Central Square
+                </div>
+                <div class="report-description">
+                    Deep pothole (approx. 2ft diameter) causing traffic congestion and vehicle damage
+                </div>
+                <div class="report-status">
+                    <i class="ph-fill ph-clock"></i> Pending Review
+                </div>
+                <div class="progress-track">
+                    <div class="progress-step active">Submitted</div>
+                    <div class="progress-step active">Reviewed</div>
+                    <div class="progress-step">In Progress</div>
+                    <div class="progress-step">Resolved</div>
                 </div>
             </div>
 
-            <!-- Feed Item 2 -->
-            <div class="feed-card">
-                <div class="card-header">
-                    <div class="user-avatar" style="background-color: #e91e63;">AS</div>
-                    <div class="post-info">
-                        <span class="user-name">Anjali Singh</span>
-                        <span class="post-time">5 hours ago &bull; Sector 4</span>
+            <!-- Report Card 2 -->
+            <div class="report-card status-progress">
+                <div class="report-header">
+                    <div>
+                        <span class="report-id">#2398</span>
+                        <span class="report-category"><i class="ph-fill ph-warning-diamond"></i> Road
+                            Cracks</span>
                     </div>
+                    <span class="report-date">5 days ago</span>
                 </div>
-                <div class="card-image">
-                    <div class="placeholder-img"
-                        style="background-color: #ddd; height: 250px; display: flex; align-items: center; justify-content: center; color: #666;">
-                        <i class="ph ph-image" style="font-size: 48px;"></i>
-                    </div>
+                <div class="report-location">
+                    <i class="ph ph-map-pin"></i> Station Road, near Railway Crossing
                 </div>
-                <div class="card-actions">
-                    <button class="action-btn support-btn" onclick="toggleSupport(this)">
-                        <i class="ph ph-thumbs-up"></i>
-                        <span class="count">89</span>
-                        <span class="label">People faced this</span>
-                    </button>
-                    <button class="action-btn share-btn">
-                        <i class="ph ph-whatsapp-logo"></i>
-                        <span class="label">Share</span>
-                    </button>
+                <div class="report-description">
+                    Multiple longitudinal cracks across 50m stretch, causing water accumulation during monsoon
                 </div>
-                <div class="card-content">
-                    <p class="issue-desc">Street light not working for 3 days. Very dark at night.</p>
-                    <div class="status-badge status-fixed">
-                        <i class="ph-fill ph-check-circle"></i> Repaired by Govt
-                    </div>
+                <div class="report-status">
+                    <i class="ph-fill ph-wrench"></i> Work in Progress
+                </div>
+                <div class="progress-track">
+                    <div class="progress-step active">Submitted</div>
+                    <div class="progress-step active">Reviewed</div>
+                    <div class="progress-step active">In Progress</div>
+                    <div class="progress-step">Resolved</div>
                 </div>
             </div>
+
+            <!-- Report Card 3 -->
+            <div class="report-card status-resolved">
+                <div class="report-header">
+                    <div>
+                        <span class="report-id">#2395</span>
+                        <span class="report-category"><i class="ph-fill ph-check-circle"></i> Road
+                            Resurfacing</span>
+                    </div>
+                    <span class="report-date">1 week ago</span>
+                </div>
+                <div class="report-location">
+                    <i class="ph ph-map-pin"></i> Civil Lines, near District Hospital
+                </div>
+                <div class="report-description">
+                    Damaged road section (30m) has been completely resurfaced with new asphalt. Excellent work!
+                </div>
+                <div class="report-status">
+                    <i class="ph-fill ph-check-circle"></i> Resolved
+                </div>
+                <div class="progress-track">
+                    <div class="progress-step active">Submitted</div>
+                    <div class="progress-step active">Reviewed</div>
+                    <div class="progress-step active">In Progress</div>
+                    <div class="progress-step active">Resolved</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resolved Reports -->
+        <div class="my-reports-section">
+            <div class="section-title">
+                <i class="ph ph-check-circle"></i>
+                <h3>Recently Resolved</h3>
+                <span class="badge-count">2</span>
+            </div>
+
+            <div class="report-card status-resolved">
+                <div class="report-header">
+                    <div>
+                        <span class="report-id">#2390</span>
+                        <span class="report-category"><i class="ph-fill ph-drop"></i> Water Supply</span>
+                    </div>
+                    <span class="report-date">Resolved 3 days ago</span>
+                </div>
+                <div class="report-location">
+                    <i class="ph ph-map-pin"></i> Raja Park, Street 12
+                </div>
+                <div class="report-status">
+                    <span class="status-label resolved">
+                        <i class="ph-fill ph-check-circle"></i> Resolved
+                    </span>
+                    <button class="btn-feedback">
+                        <i class="ph ph-star"></i> Rate Service
+                    </button>
+                </div>
+            </div>
+        </div>
         </main>
 
-        <!-- Floating Action Button -->
-        <button class="fab-btn" onclick="openCameraModal()">
-            <i class="ph-fill ph-camera"></i>
-            <span>Report</span>
-        </button>
+        <!-- Footer -->
+        <footer class="citizen-footer">
+            <div class="footer-content">
+                <p>&copy; 2026 FixMyRoad. Making our roads better together.</p>
+            </div>
+        </footer>
 
         <!-- Bottom Navigation -->
         <nav class="bottom-nav">
-            <a href="student.html" class="nav-link">
-                <i class="ph ph-house"></i>
+            <a href="student.html" class="nav-link active">
+                <i class="ph-fill ph-house"></i>
                 <span>Home</span>
             </a>
-            <a href="map.html" class="nav-link active">
-                <i class="ph-fill ph-map-trifold"></i>
+            <a href="map.html" class="nav-link">
+                <i class="ph ph-map-trifold"></i>
                 <span>Map</span>
             </a>
             <a href="profile.html" class="nav-link">
@@ -118,57 +256,8 @@
         </nav>
     </div>
 
-    <!-- Camera/Report Modal -->
-    <div id="cameraModal" class="modal-overlay">
-        <div class="camera-view">
-            <div class="camera-header">
-                <button class="close-btn" onclick="closeCameraModal()"><i class="ph ph-x"></i></button>
-                <h3>Take Photo</h3>
-            </div>
-            <div class="camera-preview">
-                <i class="ph ph-camera-slash"></i>
-                <p>Camera Preview</p>
-            </div>
-            <div class="camera-controls">
-                <button class="capture-btn" onclick="capturePhoto()"></button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Submission Form (Hidden initially) -->
-    <div id="submissionModal" class="modal-overlay">
-        <div class="submission-form">
-            <div class="modal-header">
-                <h3>Details</h3>
-                <button class="close-btn" onclick="closeSubmissionModal()"><i class="ph ph-x"></i></button>
-            </div>
-            <div class="form-body">
-                <div class="preview-thumbnail">
-                    <i class="ph ph-image"></i>
-                </div>
-                <div class="input-group">
-                    <label>Where is this?</label>
-                    <div class="location-detect">
-                        <i class="ph-fill ph-map-pin"></i>
-                        <span>Detecting location...</span>
-                    </div>
-                </div>
-                <div class="input-group">
-                    <label>What is the issue?</label>
-                    <div class="chips-container">
-                        <button class="chip active" onclick="selectChip(this)">Pothole</button>
-                        <button class="chip" onclick="selectChip(this)">Water</button>
-                        <button class="chip" onclick="selectChip(this)">Garbage</button>
-                        <button class="chip" onclick="selectChip(this)">Light</button>
-                    </div>
-                </div>
-                <button class="submit-btn" onclick="submitIssue()">
-                    Post Issue
-                </button>
-            </div>
-        </div>
-    </div>
-
+    <script src="reports-db.js"></script>
+    <script src="opus-integration.js"></script>
     <script src="script.js"></script>
 </body>
 

@@ -1,0 +1,78 @@
+/* Opus AI Results Display */
+.opus-results {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 32px;
+    border-radius: 12px;
+    margin: 32px auto;
+    max-width: 900px;
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+}
+
+.opus-results h3 {
+    margin: 0 0 24px;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.opus-results h3 i {
+    font-size: 2rem;
+}
+
+.result-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.result-item {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 16px 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.result-label {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.result-value {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.result-value.severity-high {
+    color: #ff6b6b;
+}
+
+.result-value.severity-medium {
+    color: #ffd93d;
+}
+
+.result-value.severity-low {
+    color: #6bcf7f;
+}
+
+.ai-message {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 16px;
+    border-radius: 8px;
+    margin: 16px 0 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+    .result-grid {
+        grid-template-columns: 1fr;
+    }
+}

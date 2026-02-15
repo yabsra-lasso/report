@@ -4,38 +4,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CivicPulse - Select Role</title>
+    <title>FixMyRoad - Jaipur, Rajasthan</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap"
+        rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 
 <body class="landing-page">
-    <div class="landing-container">
-        <div class="logo">
-            <i class="ph-fill ph-globe-hemisphere-east"></i>
-            CivicPulse
+    <!-- Hero Section with Wave Decoration -->
+    <div
+        style="background: linear-gradient(135deg, #FFE082 0%, #FFF59D 100%); position: relative; overflow: hidden; padding: 60px 20px 100px; text-align: center;">
+        <div style="position: relative; z-index: 10;">
+            <i class="ph-fill ph-road-horizon" style="font-size: 3rem; color: #1a1a1a;"></i>
+            <h1 style="font-family: 'Instrument Serif', serif; margin: 16px 0; font-size: 2.5rem; color: #1a1a1a;">
+                FixMyRoad</h1>
         </div>
-        <p class="subtitle">Select your role to continue</p>
 
-        <div class="role-cards">
-            <a href="student.html" class="role-card">
-                <div class="icon-circle" style="background-color: #d4edda; color: #155724;">
-                    <i class="ph-fill ph-student"></i>
-                </div>
-                <div class="role-title">Student / Citizen</div>
-                <div class="role-desc">Report issues and track status</div>
-            </a>
+        <!-- Decorative Wave Strip -->
+        <svg style="position: absolute; bottom: 0; left: 0; width: 100%; height: 80px; z-index: 1;"
+            viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0 C200,50 400,80 600,60 C800,40 1000,20 1200,40 L1200,120 L0,120 Z"
+                fill="rgba(255,255,255,0.3)" />
+            <path d="M0,20 C300,70 600,50 900,70 C1050,80 1150,60 1200,70 L1200,120 L0,120 Z"
+                fill="rgba(255,255,255,0.2)" />
+        </svg>
+    </div>
 
-            <a href="admin.html" class="role-card">
-                <div class="icon-circle" style="background-color: #e0f2f1; color: #00695c;">
-                    <i class="ph-fill ph-desktop"></i>
-                </div>
-                <div class="role-title">Admin</div>
-                <div class="role-desc">Manage reports and view analytics</div>
-            </a>
+    <!-- Main Content -->
+    <div class="landing-container" style="max-width: 800px; margin: -40px auto 40px; position: relative; z-index: 20;">
+        <div
+            style="background: white; border-radius: 16px; padding: 48px 32px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <h2 style="font-family: 'Instrument Serif', serif; font-size: 2rem; margin: 0 0 12px; color: #1a1a1a;">
+                    Report, view, or discuss local problems</h2>
+                <p style="color: #666; font-size: 1rem; margin: 0;">Making our roads better together - one report at a
+                    time</p>
+            </div>
+
+            <div class="role-cards" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+                <a href="student.html" class="role-card">
+                    <div class="icon-circle" style="background-color: #FFF9C4; color: #F57F17;">
+                        <i class="ph-fill ph-user"></i>
+                    </div>
+                    <div class="role-title">Citizen Portal</div>
+                    <div class="role-desc">Report road issues and track their status</div>
+                </a>
+
+                <a href="admin.html" class="role-card admin-card">
+                    <div class="icon-circle" style="background-color: #E3F2FD; color: #1565C0;">
+                        <i class="ph-fill ph-shield-check"></i>
+                    </div>
+                    <div class="role-title">Admin Access</div>
+                    <div class="role-desc">Manage reports and analytics</div>
+                </a>
+            </div>
+
+            <footer style="text-align: center; margin-top: 40px; padding-top: 24px; border-top: 1px solid #eee;">
+                <p style="color: #999; font-size: 0.875rem; margin: 0;">&copy; 2026 FixMyRoad. All rights reserved.</p>
+            </footer>
         </div>
     </div>
 </body>
