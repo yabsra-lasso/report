@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CivicPulse - Analytics</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body class="admin-view">
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-area">
+                <div class="logo-icon">
+                    <i class="ph-fill ph-globe-hemisphere-east"></i>
+                </div>
+                <span class="logo-text">CivicPulse</span>
+            </div>
+
+            <nav class="nav-menu">
+                <div class="nav-section">
+                    <span class="nav-label">Platform</span>
+                    <a href="index.html" class="nav-item">
+                        <i class="ph ph-squares-four"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="reports.html" class="nav-item">
+                        <i class="ph ph-list-dashes"></i>
+                        <span>Reports</span>
+                    </a>
+                    <a href="analytics.html" class="nav-item active">
+                        <i class="ph ph-chart-line-up"></i>
+                        <span>Analytics</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-label">Management</span>
+                    <a href="#" class="nav-item">
+                        <i class="ph ph-users"></i>
+                        <span>Citizens</span>
+                    </a>
+                    <a href="settings.html" class="nav-item">
+                        <i class="ph ph-gear"></i>
+                        <span>Settings</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="user-profile">
+                <div class="avatar">AD</div>
+                <div class="user-info">
+                    <span class="name">Admin User</span>
+                    <span class="role">Regional Manager</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="topbar">
+                <div class="breadcrumbs">
+                    <span class="crumb">Platform</span>
+                    <span class="separator">/</span>
+                    <span class="crumb active">Analytics</span>
+                </div>
+                <div class="topbar-actions">
+                    <button class="btn btn-secondary">
+                        <i class="ph ph-download"></i> Download Report
+                    </button>
+                </div>
+            </header>
+
+            <div class="content-scrollable">
+                <div class="analytics-grid">
+
+                    <!-- Issue Types Bar Chart -->
+                    <div class="chart-card">
+                        <div class="chart-header">Report Categories</div>
+                        <div style="height: 250px;">
+                            <canvas id="categoryChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Status Doughnut Chart -->
+                    <div class="chart-card">
+                        <div class="chart-header">Resolution Status</div>
+                        <div style="height: 250px; display: flex; justify-content: center;">
+                            <canvas id="statusChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Region Performance -->
+                    <div class="chart-card full-width">
+                        <div class="chart-header">Reports by Region</div>
+                        <div style="height: 300px;">
+                            <canvas id="regionChart"></canvas>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Page specific charts
+        document.addEventListener('DOMContentLoaded', () => {
+            const commonOptions = {
+                plugins: {
+                    legend: { labels: { color: '#a1a1a1' } }
+                },
+                scales: {
+                    y: {
+                        grid: { color: '#333' },
+                        ticks: { color: '#666' },
+                        beginAtZero: true
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { color: '#666' }
+                    }
+                }
+            };
+
+            // Category Chart
+            new Chart(document.getElementById('categoryChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Infrastructure', 'Utilities', 'Sanitation', 'Security', 'Other'],
+                    datasets: [{
+                        label: 'Reports',
+                        data: [150, 120, 90, 60, 40],
+                        backgroundColor: '#3ecf8e',
+                        borderRadius: 4
+                    }]
+                },
+                options: commonOptions
+            });
+
+            // Status Chart (Doughnut)
+            new Chart(document.getElementById('statusChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Open', 'In Progress', 'Resolved'],
+                    datasets: [{
+                        data: [30, 20, 50],
+                        backgroundColor: ['#3e8ecf', '#f5a623', '#3ecf8e'],
+                        borderColor: '#171717',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    plugins: {
+                        legend: { position: 'right', labels: { color: '#a1a1a1' } }
+                    }
+                }
+            });
+
+            // Region Chart
+            new Chart(document.getElementById('regionChart'), {
+                type: 'line',
+                data: {
+                    labels: ['Nairobi', 'Lagos', 'Accra', 'Kampala', 'Cairo'],
+                    datasets: [{
+                        label: 'This Month',
+                        data: [65, 59, 80, 81, 56],
+                        borderColor: '#3ecf8e',
+                        tension: 0.4
+                    }, {
+                        label: 'Last Month',
+                        data: [45, 49, 60, 71, 46],
+                        borderColor: '#3e8ecf',
+                        tension: 0.4
+                    }]
+                },
+                options: commonOptions
+            });
+        });
+    </script>
+</body>
+
+</html>

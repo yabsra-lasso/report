@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CivicPulse - Settings</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body class="admin-view">
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-area">
+                <div class="logo-icon">
+                    <i class="ph-fill ph-globe-hemisphere-east"></i>
+                </div>
+                <span class="logo-text">CivicPulse</span>
+            </div>
+
+            <nav class="nav-menu">
+                <div class="nav-section">
+                    <span class="nav-label">Platform</span>
+                    <a href="index.html" class="nav-item">
+                        <i class="ph ph-squares-four"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="reports.html" class="nav-item">
+                        <i class="ph ph-list-dashes"></i>
+                        <span>Reports</span>
+                    </a>
+                    <a href="analytics.html" class="nav-item">
+                        <i class="ph ph-chart-line-up"></i>
+                        <span>Analytics</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-label">Management</span>
+                    <a href="#" class="nav-item">
+                        <i class="ph ph-users"></i>
+                        <span>Citizens</span>
+                    </a>
+                    <a href="settings.html" class="nav-item active">
+                        <i class="ph ph-gear"></i>
+                        <span>Settings</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="user-profile">
+                <div class="avatar">AD</div>
+                <div class="user-info">
+                    <span class="name">Admin User</span>
+                    <span class="role">Regional Manager</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="topbar">
+                <div class="breadcrumbs">
+                    <span class="crumb">Management</span>
+                    <span class="separator">/</span>
+                    <span class="crumb active">Settings</span>
+                </div>
+                <div class="topbar-actions">
+                    <button class="btn btn-primary" onclick="alert('Settings Saved!')">
+                        <i class="ph ph-floppy-disk"></i>
+                        <span>Save Changes</span>
+                    </button>
+                </div>
+            </header>
+
+            <div class="content-scrollable">
+                <div class="settings-container">
+
+                    <!-- Profile Settings -->
+                    <div class="settings-section">
+                        <div class="settings-header">
+                            <h2>Profile Information</h2>
+                            <p>Update your account details and profile.</p>
+                        </div>
+                        <div class="settings-body">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>First Name</label>
+                                    <input type="text" value="Admin">
+                                </div>
+                                <div class="form-group">
+                                    <label>Last Name</label>
+                                    <input type="text" value="User">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <input type="email" value="admin@civicpulse.org">
+                            </div>
+                            <div class="form-group">
+                                <label>Role</label>
+                                <select disabled>
+                                    <option>Regional Manager</option>
+                                    <option>Moderator</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notification Settings -->
+                    <div class="settings-section">
+                        <div class="settings-header">
+                            <h2>Notifications</h2>
+                            <p>Manage how you receive updates.</p>
+                        </div>
+                        <div class="settings-body">
+                            <div class="toggle-switch">
+                                <div>
+                                    <div class="toggle-label">Email Notifications</div>
+                                    <div class="toggle-desc">Receive daily summaries of new reports</div>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-switch">
+                                <div>
+                                    <div class="toggle-label">High Priority Alerts</div>
+                                    <div class="toggle-desc">Instant notification for high priority issues</div>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-switch">
+                                <div>
+                                    <div class="toggle-label">Marketing Updates</div>
+                                    <div class="toggle-desc">News about platform updates</div>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

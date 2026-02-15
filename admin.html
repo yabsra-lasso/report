@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CivicPulse - Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Will share mobile styles but we override for desktop/admin specific if needed -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body class="admin-view">
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-area">
+                <i class="ph-fill ph-globe-hemisphere-east"></i>
+                <span>CivicPulse Admin</span>
+            </div>
+
+            <nav>
+                <div class="nav-label">Platform</div>
+                <a href="admin.html" class="nav-item active">
+                    <i class="ph ph-squares-four"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="reports.html" class="nav-item">
+                    <i class="ph ph-list-dashes"></i>
+                    <span>Reports</span>
+                </a>
+                <a href="analytics.html" class="nav-item">
+                    <i class="ph ph-chart-line-up"></i>
+                    <span>Analytics</span>
+                </a>
+
+                <div class="nav-label">Management</div>
+                <a href="settings.html" class="nav-item">
+                    <i class="ph ph-gear"></i>
+                    <span>Settings</span>
+                </a>
+                <a href="index.html" class="nav-item" style="margin-top: auto; color: #ff6b6b;">
+                    <i class="ph ph-sign-out"></i>
+                    <span>Exit to Home</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="topbar">
+                <div style="font-size: 0.9rem; color: #888;">Overview</div>
+                <div style="display: flex; gap: 10px;">
+                    <button class="btn btn-primary">Export Data</button>
+                    <div
+                        style="width: 32px; height: 32px; background: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                        AD</div>
+                </div>
+            </header>
+
+            <div class="content-scrollable">
+                <div class="dashboard-grid">
+                    <div class="stat-card">
+                        <span class="stat-title">Total Reports</span>
+                        <div class="stat-value">1,248</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-title">Resolved</span>
+                        <div class="stat-value" style="color: #3ecf8e;">856</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-title">Pending</span>
+                        <div class="stat-value" style="color: #f5a623;">392</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-title">Avg. Response Time</span>
+                        <div class="stat-value">2.4d</div>
+                    </div>
+
+                    <div class="chart-container">
+                        <h3>Report Activity</h3>
+                        <canvas id="adminChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Simple Admin Chart
+        const ctx = document.getElementById('adminChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                datasets: [{
+                    label: 'New Reports',
+                    data: [12, 19, 3, 5, 2, 3, 10],
+                    borderColor: '#3ecf8e',
+                    backgroundColor: 'rgba(62, 207, 142, 0.1)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        grid: { color: '#333' }
+                    },
+                    x: {
+                        grid: { color: '#333' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

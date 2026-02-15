@@ -1,0 +1,1067 @@
+:root {
+    --primary-color: #25D366;
+    /* WhatsApp Green style */
+    --primary-dark: #128C7E;
+    --accent-color: #34B7F1;
+    --text-primary: #111;
+    --text-secondary: #666;
+    --bg-color: #f0f2f5;
+    --card-bg: #fff;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    overflow-x: hidden;
+}
+
+.mobile-container {
+    max-width: 480px;
+    /* Limit width on desktop */
+    margin: 0 auto;
+    background-color: #fff;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 70px;
+    /* Space for bottom nav */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Header */
+.app-header {
+    background-color: var(--card-bg);
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-sm);
+}
+
+.header-content h1 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+}
+
+.location-badge {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 2px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    padding: 8px;
+    border-radius: 50%;
+}
+
+/* Feed */
+.feed-container {
+    padding: 10px 0;
+    background-color: var(--bg-color);
+}
+
+.feed-card {
+    background-color: var(--card-bg);
+    margin-bottom: 10px;
+    padding-bottom: 12px;
+    box-shadow: var(--shadow-sm);
+}
+
+.card-header {
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.post-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.post-time {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.card-image {
+    width: 100%;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card-actions {
+    padding: 12px 16px;
+    display: flex;
+    gap: 16px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.action-btn i {
+    font-size: 1.2rem;
+}
+
+.support-btn.active {
+    color: var(--primary-dark);
+}
+
+.support-btn.active i {
+    font-weight: bold;
+}
+
+.card-content {
+    padding: 12px 16px 4px;
+}
+
+.issue-desc {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.status-pending {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status-fixed {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* FAB */
+.fab-btn {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background-color: var(--primary-dark);
+    color: white;
+    border: none;
+    border-radius: 28px;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 90;
+    cursor: pointer;
+    /* Ensure it stays within mobile container on desktop */
+    margin-right: calc((100vw - 480px) / 2);
+}
+
+@media (max-width: 480px) {
+    .fab-btn {
+        margin-right: 0;
+    }
+}
+
+/* Bottom Nav */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid #eee;
+    z-index: 100;
+
+    /* Clamp width on desktop */
+    max-width: 480px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.7rem;
+}
+
+.nav-link i {
+    font-size: 1.5rem;
+}
+
+.nav-link.active {
+    color: var(--primary-dark);
+}
+
+/* Modals */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 1000;
+    display: none;
+    flex-direction: column;
+}
+
+.camera-view {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.camera-header {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.camera-preview {
+    flex: 1;
+    background-color: #222;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+}
+
+.camera-preview i {
+    font-size: 4rem;
+    margin-bottom: 16px;
+}
+
+.camera-controls {
+    height: 120px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.capture-btn {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: white;
+    border: 4px solid #ccc;
+    cursor: pointer;
+}
+
+/* Submission Form */
+.submission-form {
+    background-color: white;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.submission-form .modal-header {
+    background-color: white;
+    color: var(--text-primary);
+    border-bottom: 1px solid #eee;
+}
+
+.submission-form .close-btn {
+    color: var(--text-primary);
+}
+
+.form-body {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.preview-thumbnail {
+    width: 100%;
+    height: 200px;
+    background-color: #eee;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+}
+
+.preview-thumbnail i {
+    font-size: 3rem;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.location-detect {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary-dark);
+    font-weight: 500;
+    background-color: #e5f6fd;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.chips-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.chip {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    background: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.chip.active {
+    background-color: var(--primary-dark);
+    color: white;
+    border-color: var(--primary-dark);
+}
+
+.submit-btn {
+    margin-top: auto;
+    width: 100%;
+    padding: 16px;
+    background-color: var(--primary-dark);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(18, 140, 126, 0.3);
+}
+
+/* =========================================
+   Landing Page Styles
+   ========================================= */
+body.landing-page {
+    background-color: #f0f2f5;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.landing-container {
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+}
+
+.landing-container .logo {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.landing-container .subtitle {
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+.role-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 600px) {
+    .role-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+.role-card {
+    background: white;
+    border-radius: 12px;
+    padding: 40px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid transparent;
+}
+
+.role-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-color);
+}
+
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    background-color: #e5f6fd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--primary-dark);
+}
+
+.icon-circle i {
+    font-size: 2.5rem;
+}
+
+.role-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.role-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+
+/* =========================================
+   Admin Theme & Layout Styles
+   ========================================= */
+
+/* Admin specific variables override */
+body.admin-view {
+    --bg-body: #1c1c1c;
+    --bg-sidebar: #171717;
+    --bg-surface: #232323;
+    --text-primary: #ededed;
+    --text-secondary: #a1a1a1;
+    --text-tertiary: #666;
+    --border-color: #333;
+    --brand-primary: #3ecf8e;
+
+    background-color: var(--bg-body);
+    color: var(--text-primary);
+    overflow: hidden;
+    /* App container handles scroll */
+    display: block;
+    /* Reset from flex if inherited */
+}
+
+/* Re-implement Sidebar/Layout styles */
+.admin-view .app-container {
+    display: flex;
+    height: 100vh;
+}
+
+.admin-view .sidebar {
+    width: 260px;
+    background-color: var(--bg-sidebar);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+}
+
+.admin-view .main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.admin-view .topbar {
+    height: 60px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+}
+
+.admin-view .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-radius: 6px;
+    margin-bottom: 4px;
+}
+
+.admin-view .nav-item:hover,
+.admin-view .nav-item.active {
+    background-color: var(--bg-surface);
+    color: var(--text-primary);
+}
+
+.admin-view .nav-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #666;
+    margin-top: 20px;
+    margin-bottom: 8px;
+    padding-left: 10px;
+}
+
+.admin-view .logo-area {
+    color: var(--text-primary);
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.admin-view .content-scrollable {
+    padding: 24px;
+    overflow-y: auto;
+}
+
+.admin-view .btn {
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+}
+
+.admin-view .btn-primary {
+    background-color: var(--brand-primary);
+    color: #121212;
+}
+
+.admin-view .btn-secondary {
+    background-color: var(--bg-surface);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.admin-view .user-profile {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.admin-view .user-profile .avatar {
+    width: 36px;
+    height: 36px;
+    background-color: #333;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.admin-view .user-profile .user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-view .user-profile .name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.admin-view .user-profile .role {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.admin-view .breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.admin-view .breadcrumbs .separator {
+    color: #444;
+}
+
+.admin-view .breadcrumbs .crumb.active {
+    color: var(--text-primary);
+}
+
+/* Admin Dashboard Grid */
+.admin-view .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.admin-view .stat-card {
+    background-color: var(--bg-surface);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.admin-view .stat-title {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    display: block;
+    margin-bottom: 8px;
+}
+
+.admin-view .stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.admin-view .chart-container {
+    grid-column: span 4;
+    background-color: var(--bg-surface);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    height: 400px;
+}
+
+
+/* =========================================
+   Admin Reports Page Styles
+   ========================================= */
+.admin-view .filter-bar {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+    background-color: var(--bg-sidebar);
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    align-items: center;
+}
+
+.admin-view .search-input-wrapper {
+    position: relative;
+    flex: 1;
+}
+
+.admin-view .search-input-wrapper i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-tertiary);
+}
+
+.admin-view .search-input {
+    width: 100%;
+    background-color: var(--bg-body);
+    border: 1px solid var(--border-color);
+    padding: 10px 12px 10px 36px;
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+.admin-view .search-input:focus {
+    outline: none;
+    border-color: var(--brand-primary);
+}
+
+.admin-view .filter-select {
+    background-color: var(--bg-body);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.admin-view .reports-table-container {
+    background-color: var(--bg-surface);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.admin-view .reports-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.admin-view .reports-table th {
+    background-color: #2a2a2a;
+    padding: 12px 16px;
+    text-align: left;
+    color: var(--text-secondary);
+    font-weight: 500;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.admin-view .reports-table td {
+    padding: 14px 16px;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.admin-view .reports-table tr:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.admin-view .cell-primary {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.admin-view .badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.admin-view .status-open {
+    background-color: rgba(62, 142, 207, 0.2);
+    color: #3e8ecf;
+}
+
+.admin-view .status-progress {
+    background-color: rgba(245, 166, 35, 0.2);
+    color: #f5a623;
+}
+
+.admin-view .status-resolved {
+    background-color: rgba(62, 207, 142, 0.2);
+    color: #3ecf8e;
+}
+
+.admin-view .priority-high {
+    background-color: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+}
+
+.admin-view .priority-medium {
+    background-color: rgba(245, 166, 35, 0.2);
+    color: #f5a623;
+}
+
+.admin-view .priority-low {
+    background-color: rgba(59, 130, 246, 0.2);
+    color: #3b82f6;
+}
+
+.admin-view .btn-icon {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.admin-view .btn-icon:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+}
+
+.admin-view .pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.admin-view .page-controls {
+    display: flex;
+    gap: 4px;
+}
+
+.admin-view .page-btn {
+    background: var(--bg-sidebar);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.admin-view .page-btn.active {
+    background-color: var(--brand-primary);
+    border-color: var(--brand-primary);
+    color: #000;
+}
+
+
+/* =========================================
+   Admin Analytics Page Styles
+   ========================================= */
+.admin-view .analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.admin-view .chart-card {
+    background-color: var(--bg-sidebar);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    min-height: 300px;
+}
+
+.admin-view .full-width {
+    grid-column: span 2;
+}
+
+.admin-view .chart-header {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+
+/* =========================================
+   Admin Settings Page Styles
+   ========================================= */
+.admin-view .settings-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.admin-view .settings-section {
+    background-color: var(--bg-sidebar);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 32px;
+    overflow: hidden;
+}
+
+.admin-view .settings-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.admin-view .settings-header h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.admin-view .settings-header p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 4px;
+}
+
+.admin-view .settings-body {
+    padding: 32px;
+}
+
+.admin-view .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 20px;
+}
+
+.admin-view .form-group {
+    margin-bottom: 20px;
+}
+
+.admin-view .form-group label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.admin-view .form-group input,
+.admin-view .form-group select {
+    width: 100%;
+    background-color: var(--bg-body);
+    border: 1px solid var(--border-color);
+    padding: 10px 12px;
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+}
+
+.admin-view .toggle-switch {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.admin-view .toggle-label {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.admin-view .toggle-desc {
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+}
+
+/* Toggle Button CSS */
+.admin-view .switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+}
+
+.admin-view .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.admin-view .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.admin-view .slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 2px;
+    bottom: 2px;
+    background-color: var(--text-secondary);
+    transition: .4s;
+    border-radius: 50%;
+}
+
+.admin-view input:checked+.slider {
+    background-color: var(--brand-primary);
+    border-color: var(--brand-primary);
+}
+
+.admin-view input:checked+.slider:before {
+    transform: translateX(20px);
+    background-color: #fff;
+}

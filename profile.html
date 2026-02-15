@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Our Roads - Profile</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        .profile-header {
+            background-color: var(--card-bg);
+            padding: 24px 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            background-color: #3f51b5;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            border: 4px solid white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .profile-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .profile-level {
+            font-size: 0.9rem;
+            color: var(--primary-dark);
+            font-weight: 500;
+            background-color: #e5f6fd;
+            padding: 4px 12px;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .stats-row {
+            display: flex;
+            width: 100%;
+            margin-top: 24px;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 16px;
+        }
+
+        .stat-item {
+            flex: 1;
+            text-align: center;
+            border-right: 1px solid #f0f0f0;
+        }
+
+        .stat-item:last-child {
+            border-right: none;
+        }
+
+        .stat-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .section-title {
+            padding: 16px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            background-color: var(--bg-color);
+        }
+
+        .menu-list {
+            background-color: var(--card-bg);
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px;
+            border-bottom: 1px solid #f0f0f0;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .menu-item-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .menu-icon {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+        }
+
+        .logout {
+            color: #d32f2f;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mobile-container">
+        <!-- App Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <h1>My Profile</h1>
+            </div>
+            <button class="icon-btn"><i class="ph ph-gear"></i></button>
+        </header>
+
+        <main>
+            <div class="profile-header">
+                <div class="profile-avatar">RK</div>
+                <h2 class="profile-name">Rahul Kumar</h2>
+                <div class="profile-level">
+                    <i class="ph-fill ph-medal"></i> Community Hero
+                </div>
+
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <span class="stat-value">12</span>
+                        <span class="stat-label">Reports</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">450</span>
+                        <span class="stat-label">Impact Pts</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">3</span>
+                        <span class="stat-label">Fixed</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-title">MY REPORTS</div>
+            <!-- Reusing feed card style but simplified -->
+            <div class="feed-card">
+                <div class="card-header">
+                    <div class="post-info">
+                        <span class="user-name">Pothole @ MG Road</span>
+                        <span class="post-time">2 hours ago</span>
+                    </div>
+                    <div class="status-badge status-pending" style="margin-left: auto;">
+                        <i class="ph-fill ph-clock"></i> Pending
+                    </div>
+                </div>
+                <div class="card-image">
+                    <div class="placeholder-img"
+                        style="background-color: #ddd; height: 150px; display: flex; align-items: center; justify-content: center; color: #666;">
+                        <i class="ph ph-image" style="font-size: 32px;"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-title">ACCOUNT</div>
+            <div class="menu-list">
+                <a href="#" class="menu-item">
+                    <div class="menu-item-left">
+                        <i class="ph ph-bell menu-icon"></i>
+                        <span>Notifications</span>
+                    </div>
+                    <i class="ph ph-caret-right" style="color: #ccc;"></i>
+                </a>
+                <a href="#" class="menu-item">
+                    <div class="menu-item-left">
+                        <i class="ph ph-globe menu-icon"></i>
+                        <span>Language (English)</span>
+                    </div>
+                    <i class="ph ph-caret-right" style="color: #ccc;"></i>
+                </a>
+                <a href="#" class="menu-item">
+                    <div class="menu-item-left">
+                        <i class="ph ph-question menu-icon"></i>
+                        <span>Help & Support</span>
+                    </div>
+                    <i class="ph ph-caret-right" style="color: #ccc;"></i>
+                </a>
+                <a href="#" class="menu-item logout">
+                    <div class="menu-item-left">
+                        <i class="ph ph-sign-out menu-icon"></i>
+                        <span>Log Out</span>
+                    </div>
+                </a>
+            </div>
+
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-link">
+                <i class="ph ph-house"></i>
+                <span>Home</span>
+            </a>
+            <a href="map.html" class="nav-link">
+                <i class="ph ph-map-trifold"></i>
+                <span>Map</span>
+            </a>
+            <a href="profile.html" class="nav-link active">
+                <i class="ph-fill ph-user"></i>
+                <span>Profile</span>
+            </a>
+        </nav>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Our Roads - Map</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        .map-container {
+            height: calc(100vh - 130px);
+            /* Minus header and nav */
+            background-color: #e5e3df;
+            /* Google Maps colored bg */
+            position: relative;
+            overflow: hidden;
+            background-image: radial-gradient(#d1cfcb 2px, transparent 2px);
+            background-size: 30px 30px;
+        }
+
+        .map-pin {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .map-pin:active {
+            transform: scale(1.1);
+        }
+
+        .pin-icon {
+            font-size: 2rem;
+            color: var(--primary-dark);
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        }
+
+        .pin-shadow {
+            width: 12px;
+            height: 4px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            margin-top: -4px;
+        }
+
+        .map-search {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            right: 16px;
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .map-search input {
+            border: none;
+            flex: 1;
+            font-size: 1rem;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mobile-container">
+        <!-- App Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <h1>Issue Map</h1>
+            </div>
+            <button class="icon-btn"><i class="ph ph-faders"></i></button>
+        </header>
+
+        <main>
+            <div class="map-container">
+                <div class="map-search">
+                    <i class="ph ph-magnifying-glass" style="color: var(--text-secondary);"></i>
+                    <input type="text" placeholder="Search area...">
+                </div>
+
+                <!-- Fake Map Pins -->
+                <div class="map-pin" style="top: 30%; left: 40%;" onclick="alert('Pothole reported 2 hrs ago')">
+                    <i class="ph-fill ph-map-pin pin-icon" style="color: #e91e63;"></i>
+                    <div class="pin-shadow"></div>
+                </div>
+
+                <div class="map-pin" style="top: 50%; left: 70%;" onclick="alert('Broken Street Light')">
+                    <i class="ph-fill ph-map-pin pin-icon" style="color: #ff9800;"></i>
+                    <div class="pin-shadow"></div>
+                </div>
+
+                <div class="map-pin" style="top: 60%; left: 20%;" onclick="alert('Garbage Dump')">
+                    <i class="ph-fill ph-map-pin pin-icon" style="color: #25D366;"></i>
+                    <div class="pin-shadow"></div>
+                </div>
+
+                <div class="map-pin" style="top: 20%; left: 80%;" onclick="alert('Water Leakage')">
+                    <i class="ph-fill ph-map-pin pin-icon" style="color: #2196F3;"></i>
+                    <div class="pin-shadow"></div>
+                </div>
+
+                <!-- My Location -->
+                <div class="map-pin" style="top: 45%; left: 45%;">
+                    <div
+                        style="width: 16px; height: 16px; background: #4285F4; border: 2px solid white; border-radius: 50%; box-shadow: 0 0 0 10px rgba(66, 133, 244, 0.2);">
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Use Shared FAB and Modals structure if needed, or keeping it clean for map -->
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-link">
+                <i class="ph ph-house"></i>
+                <span>Home</span>
+            </a>
+            <a href="map.html" class="nav-link active">
+                <i class="ph-fill ph-map-trifold"></i>
+                <span>Map</span>
+            </a>
+            <a href="profile.html" class="nav-link">
+                <i class="ph ph-user"></i>
+                <span>Profile</span>
+            </a>
+        </nav>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CivicPulse - Reports</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body class="admin-view">
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-area">
+                <div class="logo-icon">
+                    <i class="ph-fill ph-globe-hemisphere-east"></i>
+                </div>
+                <span class="logo-text">CivicPulse</span>
+            </div>
+
+            <nav class="nav-menu">
+                <div class="nav-section">
+                    <span class="nav-label">Platform</span>
+                    <a href="index.html" class="nav-item">
+                        <i class="ph ph-squares-four"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="reports.html" class="nav-item active">
+                        <i class="ph ph-list-dashes"></i>
+                        <span>Reports</span>
+                    </a>
+                    <a href="analytics.html" class="nav-item">
+                        <i class="ph ph-chart-line-up"></i>
+                        <span>Analytics</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-label">Management</span>
+                    <a href="#" class="nav-item">
+                        <i class="ph ph-users"></i>
+                        <span>Citizens</span>
+                    </a>
+                    <a href="settings.html" class="nav-item">
+                        <i class="ph ph-gear"></i>
+                        <span>Settings</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="user-profile">
+                <div class="avatar">AD</div>
+                <div class="user-info">
+                    <span class="name">Admin User</span>
+                    <span class="role">Regional Manager</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="topbar">
+                <div class="breadcrumbs">
+                    <span class="crumb">Platform</span>
+                    <span class="separator">/</span>
+                    <span class="crumb active">All Reports</span>
+                </div>
+                <!-- Reusing btn-primary style but without onclick specific to modal unless we add it -->
+                <div class="topbar-actions">
+                    <button class="btn btn-primary" onclick="window.location.href='index.html?openModal=true'">
+                        <i class="ph ph-plus"></i>
+                        <span>New Report</span>
+                    </button>
+                </div>
+            </header>
+
+            <div class="content-scrollable">
+                <div style="max-width: 1400px; margin: 0 auto;">
+
+                    <div class="filter-bar">
+                        <div class="search-input-wrapper">
+                            <i class="ph ph-magnifying-glass"></i>
+                            <input type="text" class="search-input" placeholder="Search reports...">
+                        </div>
+                        <select class="filter-select">
+                            <option>All Statuses</option>
+                            <option>Open</option>
+                            <option>In Progress</option>
+                            <option>Resolved</option>
+                        </select>
+                        <select class="filter-select">
+                            <option>All Priorities</option>
+                            <option>High</option>
+                            <option>Medium</option>
+                            <option>Low</option>
+                        </select>
+                        <button class="btn btn-secondary">
+                            <i class="ph ph-export"></i> Export
+                        </button>
+                    </div>
+
+                    <div class="recent-reports-section" style="grid-column: span 1;">
+                        <div class="reports-table-container">
+                            <table class="reports-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Status</th>
+                                        <th>Issue Type</th>
+                                        <th>Description</th>
+                                        <th>Location</th>
+                                        <th>Reporter</th>
+                                        <th>Date</th>
+                                        <th>Priority</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#RP-2394</td>
+                                        <td><span class="badge status-open">Open</span></td>
+                                        <td class="cell-primary">Infrastructure</td>
+                                        <td
+                                            style="max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                            Large pothole causing traffic jam near market</td>
+                                        <td>District 4, Nairobi</td>
+                                        <td>John D.</td>
+                                        <td>Oct 24, 10:30 AM</td>
+                                        <td><span class="badge priority-high">High</span></td>
+                                        <td><button class="btn-icon"><i class="ph ph-dots-three"></i></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#RP-2393</td>
+                                        <td><span class="badge status-progress">In Progress</span></td>
+                                        <td class="cell-primary">Sanitation</td>
+                                        <td>Garbage piles not collected for 2 weeks</td>
+                                        <td>Sector 7, Lagos</td>
+                                        <td>Sarah M.</td>
+                                        <td>Oct 23, 4:15 PM</td>
+                                        <td><span class="badge priority-medium">Medium</span></td>
+                                        <td><button class="btn-icon"><i class="ph ph-dots-three"></i></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#RP-2392</td>
+                                        <td><span class="badge status-resolved">Resolved</span></td>
+                                        <td class="cell-primary">Utilities</td>
+                                        <td>Street light flickering constantly</td>
+                                        <td>Zone 2, Accra</td>
+                                        <td>Kwame A.</td>
+                                        <td>Oct 23, 2:00 PM</td>
+                                        <td><span class="badge priority-low">Low</span></td>
+                                        <td><button class="btn-icon"><i class="ph ph-dots-three"></i></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#RP-2391</td>
+                                        <td><span class="badge status-open">Open</span></td>
+                                        <td class="cell-primary">Security</td>
+                                        <td>Suspicious activity behind the community center</td>
+                                        <td>Central Ward, Kampala</td>
+                                        <td>Grace O.</td>
+                                        <td>Oct 22, 9:45 AM</td>
+                                        <td><span class="badge priority-medium">Medium</span></td>
+                                        <td><button class="btn-icon"><i class="ph ph-dots-three"></i></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#RP-2390</td>
+                                        <td><span class="badge status-resolved">Resolved</span></td>
+                                        <td class="cell-primary">Infrastructure</td>
+                                        <td>Broken water pipe leaking clean water</td>
+                                        <td>West District, Cairo</td>
+                                        <td>Ahmed Y.</td>
+                                        <td>Oct 21, 11:30 AM</td>
+                                        <td><span class="badge priority-high">High</span></td>
+                                        <td><button class="btn-icon"><i class="ph ph-dots-three"></i></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#RP-2389</td>
+                                        <td><span class="badge status-open">Open</span></td>
+                                        <td class="cell-primary">Others</td>
+                                        <td>Noise complaint from construction site at night</td>
+                                        <td>District 1, Nairobi</td>
+                                        <td>Peter K.</td>
+                                        <td>Oct 21, 08:30 AM</td>
+                                        <td><span class="badge priority-low">Low</span></td>
+                                        <td><button class="btn-icon"><i class="ph ph-dots-three"></i></button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="pagination">
+                        <span>Showing 6 of 128 reports</span>
+                        <div class="page-controls">
+                            <button class="page-btn"><i class="ph ph-caret-left"></i></button>
+                            <button class="page-btn active">1</button>
+                            <button class="page-btn">2</button>
+                            <button class="page-btn">3</button>
+                            <button class="page-btn">...</button>
+                            <button class="page-btn"><i class="ph ph-caret-right"></i></button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
